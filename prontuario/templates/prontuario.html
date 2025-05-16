@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prontuário Médico</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Prontuários</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <form method="post" action="/">
+      <label for="consulta_id">ID da Consulta:</label>
+      <input type="text" id="consulta_id" name="consulta_id" required>
+
+      <label for="descricao">Descrição:</label>
+      <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+      <button type="submit">Adicionar Prontuário</button>
+  </form>
+
+  <h2>Prontuários Registrados</h2>
+  <ul>
+    {% for r in registros %}
+      <li><strong>ID:</strong> {{ r.id }} | <strong>Consulta:</strong> {{ r.consulta_id }} | <strong>Descrição:</strong> {{ r.descricao }}</li>
+    {% else %}
+      <li>Nenhum prontuário cadastrado.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
