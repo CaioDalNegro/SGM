@@ -20,7 +20,6 @@ O sistema é composto pelos seguintes microsserviços:
 |       **Consulta**       |     Agendamento e listagem de consultas      | 5002   |
 |      **Prontuário**      |  Armazenamento e acesso a registros médicos  | 5003   |
 |     **Faturamento**      |   Geração de faturas e cálculo de valores    | 5004   |
-| **Plano de Saúde** (mock)| Serviço simulado para validação de cobertura | 5005   |
 
 ---
 
