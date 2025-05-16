@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Faturamento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <h1>Faturamento</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post" action="/">
+        <label for="paciente">Paciente:</label>
+        <input type="text" id="paciente" name="paciente" required>
+
+        <label for="valor_servico">Valor do Serviço (R$):</label>
+        <input type="number" step="0.01" id="valor_servico" name="valor_servico" required>
+
+        <button type="submit">Criar Fatura</button>
+    </form>
+
+    <h2>Faturas Registradas</h2>
+    <ul>
+      {% for f in faturas %}
+        <li>
+          <strong>ID:</strong> {{ f.id }} |
+          <strong>Paciente:</strong> {{ f.paciente }} |
+          <strong>Valor Serviço:</strong> R$ {{ "%.2f"|format(f.valor_servico) }} |
+          <strong>Imposto:</strong> R$ {{ "%.2f"|format(f.imposto) }} |
+          <strong>Total:</strong> R$ {{ "%.2f"|format(f.valor_total) }}
+        </li>
+      {% else %}
+        <li>Nenhuma fatura cadastrada.</li>
+      {% endfor %}
+    </ul>
+</body>
+</html>
