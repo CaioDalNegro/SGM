@@ -2,11 +2,18 @@
 
 # 🏥 Sistema de Gestão Modular - Vida+ Saúde
 
-Este projeto implementa um sistema de gestão para uma rede de clínicas médicas com arquitetura baseada em **microsserviços**, desenvolvido em **Python com Flask** e **containerizado com Docker**.
+Este projeto implementa um **Sistema de Gestão para Clínicas Médicas** utilizando uma arquitetura baseada em **microsserviços**, desenvolvido em **Python com Flask** e **containerizado com Docker**. Ele permite o gerenciamento descentralizado de pacientes, consultas, prontuários e faturamento médico.
+
+---
 
 ## 📦 Visão Geral
 
-Com o crescimento da rede Vida+ Saúde, o antigo sistema monolítico deu lugar a uma arquitetura mais escalável e modular. Os serviços são organizados em contêineres independentes, facilitando a manutenção, escalabilidade e integração com sistemas externos.
+Com o crescimento da rede Vida+ Saúde, houve a necessidade de abandonar o antigo sistema monolítico. A solução proposta adota uma arquitetura de microsserviços, onde cada componente do sistema é executado de forma isolada, promovendo:
+
+- **Escalabilidade**
+- **Manutenção simplificada**
+- **Resiliência entre serviços**
+- **Integração facilitada com sistemas externos**
 
 ---
 
@@ -23,10 +30,38 @@ O sistema é composto pelos seguintes microsserviços:
 
 ---
 
+## 🔧 Tecnologias Utilizadas
+
+- **Python 3.10**
+- **Flask**
+- **Docker / Docker Compose**
+- **HTTP (RESTful APIs)**
+- **Requests (para comunicação entre serviços)**
+
+---
+
 ## 🔗 Arquitetura
 
-- **Integração Horizontal**: Comunicação entre microsserviços por chamadas HTTP internas (ex: Consulta busca dados do Paciente).
-- **Integração Vertical**: Comunicação com um serviço externo simulado (Plano de Saúde) para validação de procedimentos.
+- **Integração Horizontal**: Serviços se comunicam via chamadas HTTP internas (ex: Consulta consulta o serviço de Paciente).
+- **Integração Vertical**: O serviço de Faturamento se comunica com o serviço externo simulado de Plano de Saúde.
 
-### 📌 Diagrama Resumido
+### 📌 Diagrama de Arquitetura
+
+> 💡 *Insira aqui uma imagem do diagrama, ou utilize um serviço como draw.io para gerar um esquema visual.*  
+> Exemplo (substitua pelo seu):
+> ![Diagrama de Arquitetura](docs/diagrama-arquitetura.png)
+
+---
+
+## 🚀 Como Executar
+
+> Requisitos: [Docker](https://www.docker.com/) e [Docker Compose](https://docs.docker.com/compose/)
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/vida-saude.git
+cd vida-saude
+
+# Suba todos os serviços
+docker-compose up --build
 
