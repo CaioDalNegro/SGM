@@ -18,9 +18,11 @@ document.getElementById('consultaForm').addEventListener('submit', async functio
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(consulta)
         });
+
+        const result = await response.json();
+
         if (!response.ok) {
-            const error = await response.json();
-            alert('Erro: ' + (error.error || 'Não foi possível agendar.'));
+            alert('Erro: ' + (result.error || 'Não foi possível agendar.'));
             return;
         }
 
@@ -49,5 +51,4 @@ async function carregarConsultas() {
     }
 }
 
-// Carrega consultas ao abrir a página
 window.onload = carregarConsultas;
