@@ -10,7 +10,7 @@ consultas = []
 @app.route('/')
 def index():
     try:
-        pacientes = requests.get("http://localhost:5001/api/pacientes").json()
+        pacientes = requests.get("http://paciente:5001/api/pacientes").json()
     except:
         pacientes = []
     return render_template('consulta.html', pacientes=pacientes)
@@ -30,13 +30,13 @@ def adicionar_consulta():
         return jsonify({'error': 'Dados incompletos'}), 400
 
     # Verifica se o paciente está cadastrado
-    pacientes = requests.get("http://localhost:5001/api/pacientes").json()
+    pacientes = requests.get("http://paciente:5001/api/pacientes").json()
     nomes_pacientes = [p['nome'] for p in pacientes]
 
     if nome not in nomes_pacientes:
         return jsonify({'error': 'Paciente não cadastrado'}), 400
 
-    consulta = {'nome_paciente': nome, 'data': data, 'hora': hora}
+    consulta = {'id': len(consultas) + 1,'nome_paciente': nome, 'data': data, 'hora': hora}
     consultas.append(consulta)
     return jsonify({'message': 'Consulta agendada com sucesso'}), 201
 
