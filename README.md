@@ -45,13 +45,6 @@ O sistema é composto pelos seguintes microsserviços:
 - **Integração Horizontal**: Serviços se comunicam via chamadas HTTP internas (ex: Consulta consulta o serviço de Paciente).
 - **Integração Vertical**: O serviço de Faturamento se comunica com o serviço externo simulado de Plano de Saúde.
 
-### 📌 Diagrama de Arquitetura
-
-> 💡 *Insira aqui uma imagem do diagrama, ou utilize um serviço como draw.io para gerar um esquema visual.*  
-> Exemplo (substitua pelo seu):
-> ![Diagrama de Arquitetura](docs/diagrama-arquitetura.png)
-
----
 
 ## 🚀 Como Executar
 
@@ -59,8 +52,7 @@ O sistema é composto pelos seguintes microsserviços:
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/vida-saude.git
-cd vida-saude
+git clone https://github.com/CaioDalNegro/SGM.git
 
 # Suba todos os serviços
 docker-compose up --build
