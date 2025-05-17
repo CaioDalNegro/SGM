@@ -6,7 +6,7 @@ app.secret_key = 'chave_secreta_para_flash'
 
 registros = []
 
-CONSULTA_SERVICE_URL = 'http://localhost:5002/api/consultas'
+CONSULTA_SERVICE_URL = 'http://consulta:5002/api/consultas'
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -54,4 +54,4 @@ def index():
     return render_template('prontuario.html', registros=registros)
 
 if __name__ == '__main__':
-    app.run(port=5003, debug=True)
+    app.run(host='0.0.0.0', port=5003)
